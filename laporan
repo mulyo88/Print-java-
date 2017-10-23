@@ -1,0 +1,15 @@
+private void laporan() {
+        
+       Connection conn = new db_form().getConnection();
+            try {
+               String path = "src/project/report1.jasper";
+              par.clear();
+             JasperPrint print = JasperFillManager.fillReport(path,par, conn);
+               JasperViewer jv = new JasperViewer(print, false);
+               jv.setVisible(true);
+                //JasperViewer.viewReport(print, false);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Dokumen Tidak Ada" + "\n" + ex.getMessage());
+            }
+        
+    }
